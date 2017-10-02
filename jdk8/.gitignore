@@ -1,0 +1,29 @@
+deploy/
+*.tar.gz
+target/
+!.mvn/wrapper/maven-wrapper.jar
+build
+### Gradle ###
+.gradle
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/application-dev.yml
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
