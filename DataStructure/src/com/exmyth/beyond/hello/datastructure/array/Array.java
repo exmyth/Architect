@@ -1,11 +1,11 @@
-package com.exmyth.beyond.hello.datastructure;
+package com.exmyth.beyond.hello.datastructure.array;
 
-public class Array {
+public class Array<E> {
     private int size;
-    private int[] data;
+    private E[] data;
 
     public Array(int capacity) {
-        this.data = new int[capacity];
+        data = (E[])new Object[capacity];
         size = 0;
     }
 
@@ -25,7 +25,7 @@ public class Array {
         return size == 0;
     }
 
-    public void add (int index, int e){
+    public void add (int index, E e){
         if(size == data.length){
             throw new IndexOutOfBoundsException();
         }
@@ -38,67 +38,68 @@ public class Array {
         data[index] = e;
         size++;
     }
-    public void addLast(int e){
+    public void addLast(E e){
         add(size, e);
     }
 
-    public void addFirst(int e){
+    public void addFirst(E e){
         add(0, e);
     }
 
-    int get(int index){
+    E get(int index){
         if(index < 0 || index >=size){
             new IndexOutOfBoundsException();
         }
         return data[index];
     }
 
-    void set(int index, int e){
+    void set(int index, E e){
         if(index < 0 || index >=size){
             new IndexOutOfBoundsException();
         }
         data[index] = e;
     }
 
-    public boolean contains(int e){
+    public boolean contains(E e){
         for (int i = 0; i < size; i++) {
-            if(data[i] == e){
+            if(data[i].equals(e)){
                 return true;
             }
         }
         return false;
     }
 
-    public int find(int e){
+    public int find(E e){
         for (int i = 0; i < size; i++) {
-            if(data[i] == e){
+            if(data[i].equals(e)){
                 return i;
             }
         }
         return -1;
     }
 
-    public int remove(int index){
+    public E remove(int index){
         if(index < 0 || index >=size){
             new IndexOutOfBoundsException();
         }
-        int result = data[index];
+        E result = data[index];
         for (int i = index + 1; i < size; i++) {
             data[i -1 ] = data[i];
         }
         size--;
+        data[size] = null;//loitering object != memory leak
         return result;
     }
 
-    public int removeFirst(){
+    public E removeFirst(){
         return remove(0);
     }
 
-    public int removeLast(){
+    public E removeLast(){
         return remove(size -1);
     }
 
-    public boolean removeElement(int e){
+    public boolean removeElement(E e){
         int index = find(e);
         if(index != -1){
             remove(index);
