@@ -1,12 +1,13 @@
 package com.exmyth.beyond.hello.datastructure.stack;
-import java.util.Stack;
+//import java.util.Stack;
 
 /**
  * https://leetcode.com/problems/valid-parentheses/
  */
 class Solution {
     public boolean isValid(String s) {
-        Stack<Character> stack = new Stack<>();
+//        Stack<Character> stack = new Stack<>();
+        Stack<Character> stack = new ArrayStack<>();
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if(c == '(' || c == '[' || c == '{'){
