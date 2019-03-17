@@ -56,14 +56,22 @@ public class Array<E> {
         add(0, e);
     }
 
-    E get(int index){
+    public E get(int index){
         if(index < 0 || index >=size){
             new IndexOutOfBoundsException();
         }
         return data[index];
     }
 
-    void set(int index, E e){
+    public E getFirst(){
+        return get(0);
+    }
+
+    public E getLast(){
+        return get(size - 1);
+    }
+
+    public void set(int index, E e){
         if(index < 0 || index >=size){
             new IndexOutOfBoundsException();
         }
